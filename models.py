@@ -494,17 +494,10 @@ class KGReasoning(nn.Module):
             score , rank_list = zip(*sorted_pair)
             if len(li) == 1:
                 query_structrue = (('e', ('r', 'r')), ('e', ('r', 'n')))
-                # query_structrue = (('e', ('r',)), ('e', ('r', 'n')))
-                # query_structrue = (('e', ('r','r')))
             elif len(li) == 2:
                 query_structrue = ((('e', ('r','r')), ('e', ('r','r'))),(('e', ('r','n')), ('e', ('r','n'))))
-                # query_structrue = ((('e', ('r',)), ('e', ('r',))),(('e', ('r','n')), ('e', ('r','n'))))
-                # query_structrue = ((('e', ('r','r')), ('e', ('r','r'))))
             else:
                 query_structrue = ((('e', ('r','r')), ('e', ('r','r')), ('e', ('r','r'))), (('e', ('r','n')), ('e', ('r','n')), ('e', ('r','n'))))
-                # query_structrue = ((('e', ('r',)), ('e', ('r',)), ('e', ('r',))), (('e', ('r','n')), ('e', ('r','n')), ('e', ('r','n'))))
-                # query_structrue = ((('e', ('r','r')), ('e', ('r','r')), ('e', ('r','r'))))
-
             ndcg20 = ndcg_at_k(hard_answer , rank_list , 20)
             mrr20 = MRR(hard_answer , rank_list , 20)
             if pre_rank_list != rank_list:

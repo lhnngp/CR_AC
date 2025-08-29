@@ -28,20 +28,6 @@ query_name_dict = {
                    ((('e', ('r','r')), ('e', ('r','r')), ('e', ('r','r'))), (('e', ('r','n')), ('e', ('r','n')), ('e', ('r','n')))): 'base-SC1-3order',
                    }
 
-# strong_complement
-# query_name_dict = {
-#                    (('e', ('r',)), ('e', ('r','n'))): 'base-SC1-1order',
-#                    ((('e', ('r',)), ('e', ('r',))),(('e', ('r','n')), ('e', ('r','n')))): 'base-SC1-2order',
-#                    ((('e', ('r',)), ('e', ('r',)), ('e', ('r',))), (('e', ('r','n')), ('e', ('r','n')), ('e', ('r','n')))): 'base-SC1-3order',
-#                    }
-
-# substitute
-# query_name_dict = {
-#                    (('e', ('r','r'))): 'base-SC1-1order',
-#                    ((('e', ('r','r')), ('e', ('r','r')))): 'base-SC1-2order',
-#                    ((('e', ('r','r')), ('e', ('r','r')), ('e', ('r','r')))): 'base-SC1-3order',
-#                    }
-
 name_query_dict = {value: key for key, value in query_name_dict.items()}
 all_tasks = list(name_query_dict.keys())
 
@@ -230,9 +216,6 @@ def main(args):
     max_hit = -1
     set_global_seed(args.seed)
     tasks = args.tasks.split('.')
-    args.do_train = False
-    args.do_valid = False
-    args.do_test = True
     args.print_on_screen = True
 
     cur_time = parse_time() + '_' + str(args.negative_sample_size) + '-' + args.data_path.split('/')[-1]
